@@ -1,12 +1,16 @@
 {
   "name": "pull-project-cli",
-  "version": "1.0.3",
+  "version": "1.0.5",
   "description": "",
   "bin": {
     "pull-project-cli": "./index.js"
   },
   "keywords": [],
   "author": "xiaohe",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Hxiaofeifei/pull-project-cli.git"
+  },
   "license": "MIT",
   "dependencies": {
     "chalk": "^4.1.1",

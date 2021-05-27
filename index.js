@@ -8,7 +8,7 @@ const path = require('path');
 program.version('1.0.0', '-v', '--version')
     .command('init <name>')
     .action((name) => {
-        const dirPath = path.resolve(__dirname, `./${name}`);
+        const dirPath = path.resolve(process.cwd(), `./${name}`);
         fs.mkdir(dirPath, async (err) => {
             const result = await init(name);
             const { platform, account, password,address } = result;
@@ -17,7 +17,7 @@ program.version('1.0.0', '-v', '--version')
                 if(add){
                     const dict = ['https:','http:','ws:','wss:'];
                     if(dict.indexOf(add[0])<0) throw new Error('project address error');
-                    exec(`git clone ${add[0]+'//'+account+":"+password+''+add[1]} ${dirPath}`, (err, stdout, stderr) => {
+                    exec(`git clone ${add[0]+'//'+account+":"+password+''+"@"+add[1]} ${dirPath}`, (err, stdout, stderr) => {
                         if (err) {
                             console.log(err);
                             process.exit();
